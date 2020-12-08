@@ -1,0 +1,29 @@
+﻿@{
+    // List<Account> accounts = ((List<Account>)ViewBag.Accounts); // forma A
+    List<Account> accounts = ((List<Account>)Model); // forma B
+}
+
+<h1>Cuentas - ABC</h1>
+<h3>Saldo: @string.Format("{0:N2}", accounts.Sum(o => o.Amount)) S./</h3>
+
+<a id="link" onclick="saludar(event)" class="link" href="/account/create">Crear Cuenta</a>
+
+<a class="link" href="/transfer/create">Transferencia</a>
+
+<a href="#">Cargar datos</a>
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div id="table-content">
+    <h1>Hola Mundo</h1>
+</div>
+
+@section Scripts {
+    <script src="~/js/account.js"></script>
+}
